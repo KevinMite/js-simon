@@ -7,5 +7,45 @@
 function numRandom(){
     return Math.floor(Math.random() * 10) + 1
 }
+let randomNumbers = []
 
-// console.log(numRandom())
+while( randomNumbers.length < 5){
+    let random = numRandom()
+
+    if( !randomNumbers.includes(numRandom) ){
+        randomNumbers.push( random )
+    }
+}
+console.log(randomNumbers)
+
+
+// Mostriamo il numero del array 
+
+for(let i = 0; i < randomNumbers.length; i++){
+        document.getElementById('numeri-random').innerHTML += `<li>${randomNumbers[i]}</li>`
+
+}
+
+setTimeout( function(){
+    document.getElementById('numeri-random').innerHTML = ''
+}, 2000 )
+
+
+setTimeout( function(){
+
+    let numeriUtenti = []
+
+    while(numeriUtenti.length < 5){
+        let singoloNumero = parseInt(prompt("inserisci il numero")) 
+
+        if(!numeriUtenti.includes(singoloNumero)){
+            numeriUtenti.push(singoloNumero)
+
+        }
+
+    }
+
+    console.log(numeriUtenti)
+
+
+}, 3000 )
