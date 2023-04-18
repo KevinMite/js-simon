@@ -5,7 +5,7 @@
 
 // primo numero casuale 
 function numRandom(){
-    return Math.floor(Math.random() * 10) + 1
+    return Math.floor(Math.random() * 100) + 1
 }
 let randomNumbers = []
 
@@ -22,7 +22,7 @@ console.log(randomNumbers)
 // Mostriamo il numero del array 
 
 for(let i = 0; i < randomNumbers.length; i++){
-        document.getElementById('numeri-random').innerHTML += `<li>${randomNumbers[i]}</li>`
+    document.getElementById('numeri-random').innerHTML += `<li>${randomNumbers[i]}</li>`
 
 }
 
@@ -33,19 +33,32 @@ setTimeout( function(){
 
 setTimeout( function(){
 
-    let numeriUtenti = []
+    let numeriUtente = []
 
-    while(numeriUtenti.length < 5){
+    while(numeriUtente.length < 5){
         let singoloNumero = parseInt(prompt("inserisci il numero")) 
 
-        if(!numeriUtenti.includes(singoloNumero)){
-            numeriUtenti.push(singoloNumero)
-
+        if(!numeriUtente.includes(singoloNumero)){
+            numeriUtente.push(singoloNumero)
         }
 
     }
 
-    console.log(numeriUtenti)
+    console.log(numeriUtente)
+
+
+    let indovinati = []
+
+    for(let k = 0; k < numeriUtente.length; k++ ){
+
+        if( randomNumbers.includes(numeriUtente[k])){
+            indovinati.push( numeriUtente [ k ] )
+
+        }
+    }
+
+    document.getElementById('risultato').innerHTML = `hai indovinato ${indovinati.length} e sono: ${indovinati}`
+
 
 
 }, 3000 )
